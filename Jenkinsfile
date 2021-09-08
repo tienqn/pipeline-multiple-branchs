@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        agent {
-            docker {
-                image 'php:fpm'
-            }
-        }
         stage('check version php') {
+            agent {
+                docker {
+                    image 'php:fpm'
+                }
+            }
             steps {
                 echo 'php -v'
             }
