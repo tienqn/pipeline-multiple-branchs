@@ -9,15 +9,15 @@ pipeline {
                 }
             }
             steps {
-                slackSend(channel: "myproject", color: "warning", message: "Started build...")
+                slackSend(channel: "myproject", color: "warning", message: "Started build...", iconEmoji: "heart")
                 sh 'php -v'
             }
             post {
                 success {
-                    slackSend(channel: "myproject", color: "good", message: "Build success!")
+                    slackSend(channel: "myproject", color: "good", message: "Build success!", iconEmoji: "thumbsup")
                 }
                 failure {
-                    slackSend(channel: "myproject", color: "danger", message: "Build failure!")
+                    slackSend(channel: "myproject", color: "danger", message: "Build failure!", iconEmoji: "imp")
                 }
             }
         }
