@@ -3,11 +3,11 @@ pipeline {
 
     stages {
         stage('check version php') {
-//             agent {
-//                 docker {
-//                     image 'php:fpm'
-//                 }
-//             }
+            agent {
+                docker {
+                    image 'php:fpm'
+                }
+            }
             steps {
                 slackSend(channel: "myproject", color: "warning", message: "Started build...")
                 sh 'php -v'
