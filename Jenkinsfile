@@ -9,7 +9,7 @@ pipeline {
                 }
             }
             steps {
-                blocks = [
+                slackSend(channel: "myproject", blocks: [
                     [
                         "type": "section",
                         "text": [
@@ -32,9 +32,7 @@ pipeline {
                             "alt_text": "alt text for image"
                         ]
                     ]
-                ]
-
-                slackSend(channel: "myproject", blocks: blocks)
+                ])
                 sh 'php -v'
             }
             post {
